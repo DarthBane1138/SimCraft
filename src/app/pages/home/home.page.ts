@@ -18,8 +18,8 @@ export class HomePage implements OnInit {
   ngOnInit() {
     let extras =this.router.getCurrentNavigation()?.extras; //el ? es una proteccion contra valores nulos, lo que evita que las paginas se caigan derepente
     if(extras?.state){
-      this.user= extras?.state["usuario"]; //if de existencias, permite 
-      this.pass= extras?.state["password"];
+      this.user= extras?.state["user"]; //if de existencias, permite 
+      this.pass= extras?.state["pass"];
     }
   console.log("Nombre usuario: " + this.user);
   console.log("Contraseña: " + this.pass);
@@ -51,24 +51,26 @@ export class HomePage implements OnInit {
   change_pass () {
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
-        "changed_user": this.user,
-        "changed_pass": this.new_pass,
+        "user": this.user,
+        "pass": this.new_pass,
       },
-      replaceUrl: true //reemplazo de url (navegacion previa se olvida y se borra)
     }
 
     if(this.current_pass == this.pass){
-      console.log("Le achuntaste")
+      console.log("Tu contraseña actual es correcta")
       if(this.new_pass == this.confirm_pass) {
-        console.log("bien")
+        console.log("Confirmación correcta de contraseña nueva")
         this.pass = this.new_pass;
         console.log("Nombre usuario: " + this.user);
-        console.log("Contraseña: " + this.pass);
+        console.log("Contraseña nueva: " + this.pass);
         this.router.navigate(['login'], extras)
         this.modal.dismiss(this.current_pass, 'confirm');
+      } else {
+      console.log("Confirmación de constraseña incorrecta")
+      console.log("Nombre usuario: " + this.user);
+      console.log("Contraseña nueva: " + this.pass);
       }
-    } else {
-      console.log("aweonao")
     }
+    console.log("Contraseña incorrecta"); 
   }
 }

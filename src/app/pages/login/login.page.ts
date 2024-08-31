@@ -8,6 +8,9 @@ import { NavigationExtras, Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
 
+  user: string = '';
+  pass: string = '';
+
   mdl_user: string = '';
   mdl_pass: string = '';
   //warningVisible: boolean = false;
@@ -19,31 +22,35 @@ export class LoginPage implements OnInit {
   constructor(private router:Router) { 
 
   }
-  user2: string='';
-  pass2: string='';
+ 
   ngOnInit() {
     let extras =this.router.getCurrentNavigation()?.extras; //el ? es una proteccion contra valores nulos, lo que evita que las paginas se caigan derepente
     if(extras?.state){
-      this.user2= extras?.state["changed_user"]; //if de existencias, permite 
-      this.pass2= extras?.state["changed_pass"];
+      this.user= extras?.state["user"]; //if de existencias, permite 
+      this.pass= extras?.state["pass"];
+      console.log
+    } else {
+      this.user = 'admin';
+      this.pass = 'admin';
     }
+    console.log("Variables heredadas")
+    console.log("Nombre usuario: " + this.user);
+    console.log("Contraseña nueva: " + this.pass);
   }
+  
   login(){
     this.spinnervisible=true;
     //this.warningVisible=false;
     //navegacion con parametros 
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
-        "usuario": this.mdl_user,
-        "password": this.mdl_pass,
-        "msg": "messagge"
+        "user": this.mdl_user,
+        "pass": this.mdl_pass,
       },
       replaceUrl: true //reemplazo de url (navegacion previa se olvida y se borra)
     }
     setTimeout(() => {
-      if(this.mdl_user == 'admin' && this.mdl_pass=='admin'){
-        this.router.navigate(['home'], extras);
-      } else if (this.user2 == this.user2 && this.pass2 == this.pass2) {
+      if(this.mdl_user == this.user && this.mdl_pass == this.pass){
         this.router.navigate(['home'], extras);
       }
       else{
@@ -51,7 +58,7 @@ export class LoginPage implements OnInit {
         this.isToastOpen=true; //alerta evento credenciales incorrectass
       }
       this.spinnervisible=false;
-    }, 3000);
+    }, 0);
   }
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
