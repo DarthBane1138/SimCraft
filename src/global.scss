@@ -35,3 +35,73 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.btn{
+    --background: #00c1ff;
+    --color: #090979;
+    --border-radius: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.btn:hover{
+    --background: #090979;
+    --color:#ffff;
+}
+
+.barra{
+    --background:  radial-gradient(circle, rgba(0,193,255,1) 44%, rgba(9,9,121,1) 100%);
+}
+
+
+.fondo{
+    --background: #f4f1f1;
+    --color: #000;
+}
+
+
+.input{
+    --background:#fff;
+    --color: #000000;
+    --border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    transition: border-color border-radius 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+.input:hover{
+    border-radius: 20px;
+    border: 1px solid #00c1ff;
+}
+
+.label{
+    --highlight-color: #090979;
+}
+
+/* .item-war{
+    --background: #ffd900;
+    font-weight: bold;
+    --color:#790097;
+    border-radius: 5%;
+    margin-top: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+ion-toast {
+    --background: #FFC90E;
+    --color: #000000;
+    --border-radius: 10px;
+    --max-width: 90%;
+  }
+
+.icono{
+    --color: #cccccc !important;
+  }
+.icono-presionado{
+    --color: #8b0000 !important;
+  }
