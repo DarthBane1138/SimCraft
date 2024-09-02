@@ -27,7 +27,8 @@ export class SignUpPage implements OnInit {
       state: {
         "user": this.mdl_new_user,
         "pass": this.mdl_new_pass,
-      }
+      },
+      replaceUrl: true
     }
     setTimeout(() => {
       if(this.mdl_new_user && this.mdl_new_pass && this.mdl_email && this.mdl_conf_pass) {

@@ -75,6 +75,13 @@ export class HomePage implements OnInit {
     }
   }
   cerrarSesion(){
-    this.router.navigate(['login'])
+    let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
+      state: {
+        "user": this.user,
+        "pass": this.pass,
+      },
+      replaceUrl: true
+    }
+    this.router.navigate(['login'],extras)
   }
 }
