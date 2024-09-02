@@ -57,7 +57,7 @@ export class LoginPage implements OnInit {
         this.isToastOpen=true; //alerta evento credenciales incorrectass
       }
       this.spinnervisible=false;
-    }, 0);
+    }, 2000);
     
   }
 
