@@ -16,6 +16,9 @@
   </ion-button>
   <!--<ion-item lines="none" class="item-war ion-text-center" *ngIf="warningVisible">Credenciales incorrectas</ion-item>-->
   <!--directivas: instrucciones en el html, ejemplo: *ngif(incrustacion de if)-->
+  <!-- Botón para registro -->
+  <p class="signup-button" (click)="signup()"> ¿No estás registrado? </p>
+  <!-- Toast -->
   <ion-toast
     [isOpen]="isToastOpen"
     [message]="message"
@@ -24,4 +27,4 @@
     position="middle"
   ></ion-toast>
 </ion-content>
-<!--en corchetes lo busca en ts, -->
+<!--en corchetes lo busca en ts -->

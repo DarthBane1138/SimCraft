@@ -28,7 +28,6 @@ export class LoginPage implements OnInit {
     if(extras?.state){
       this.user= extras?.state["user"]; //if de existencias, permite 
       this.pass= extras?.state["pass"];
-      console.log
     } else {
       this.user = 'admin';
       this.pass = 'admin';
@@ -59,9 +58,14 @@ export class LoginPage implements OnInit {
       }
       this.spinnervisible=false;
     }, 0);
+    
   }
+
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
   }
 
+  signup() {
+    this.router.navigate(['sign-up'])
+  }
 }

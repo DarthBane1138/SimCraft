@@ -1,13 +1,29 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>sign-up</ion-title>
-  </ion-toolbar>
+  <ion-header>
+    <ion-toolbar class="barra ion-text-center"> Registro </ion-toolbar>
+  </ion-header>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">sign-up</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Usuario -->
+  <ion-item lines="none"  class="ion-margin-top input">
+    <ion-input [(ngModel)]='mdl_new_user' label="User" labelPlacement="floating" placeholder="Ingresa un nombre de usuario" class="label"></ion-input>
+  </ion-item>
+  <!-- Correo -->
+  <ion-item lines="none"  class="ion-margin-top input">
+    <ion-input [(ngModel)]='mdl_email' type="email" label="Correo" labelPlacement="floating" placeholder="Ingresa ru correo" class="label"></ion-input>
+  </ion-item>
+  <!-- Contraseña -->
+  <ion-item lines="none"  class="ion-margin-top input">
+    <ion-input [(ngModel)]='mdl_new_pass' type="password" labelPlacement="floating" placeholder="Ingresa la contraseña" label="Contraseña"></ion-input>
+  </ion-item>
+  <!-- Confirmación Contraseña -->
+  <ion-item lines="none"  class="ion-margin-top input">
+    <ion-input [(ngModel)]='mdl_conf_pass' type="password" labelPlacement="floating" placeholder="Confirma tu contraseña" label="Confirma Contraseña"></ion-input>
+  </ion-item>
+  <!-- Botón para confirmar registro -->
+  <ion-button (click)="registrar()" class="btn ion-margin-top" fill="solid" expand="block">
+    <ion-spinner *ngIf="spinnervisible" name="dots" slot="start"></ion-spinner> Registrar <ion-icon slot="end"></ion-icon>
+  </ion-button>
 </ion-content>
+

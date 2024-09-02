@@ -4,7 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- Contenido de la pantalla -->
 <ion-content class="ion-padding">
+  <!-- Botón para modal de cambiar contraseña -->
   <ion-button id="open-modal" expand="block">Cambiar Contraseña</ion-button>
   <p>{{ message }}</p>
   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
@@ -14,12 +16,12 @@
           <ion-buttons slot="start">
             <ion-button (click)="cancel()">Cancel</ion-button>
           </ion-buttons>
-          <ion-title></ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="change_pass()" [strong]="true"> Confirm </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
+      <h1 class="centered-modal-text"> Cambia tu contraseña </h1>
       <ion-content class="ion-padding">
         <ion-item>
           <ion-input
