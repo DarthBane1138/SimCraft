@@ -1,0 +1,14 @@
+.btn-inicio {
+    --background: #f1ee03;
+    --color: #ffffff;
+    --border-radius: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+}
+
+.btn-inicio:active{
+    --background: #ffd000;
+    --color: #000000;
+}

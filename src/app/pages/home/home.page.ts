@@ -58,7 +58,9 @@ export class HomePage implements OnInit {
 
     if(this.current_pass == this.pass){
       console.log("Tu contraseña actual es correcta")
-      if(this.new_pass == this.confirm_pass) {
+      if(this.confirm_pass == '' && this.new_pass == ''){
+        console.log("Ingresa una contraseña")
+      }else if(this.new_pass == this.confirm_pass) {
         console.log("Confirmación correcta de contraseña nueva")
         this.pass = this.new_pass;
         console.log("Nombre usuario: " + this.user);
@@ -67,11 +69,10 @@ export class HomePage implements OnInit {
         this.modal.dismiss(this.current_pass, 'confirm');
       } else {
       console.log("Confirmación de constraseña incorrecta")
+      }
       console.log("Nombre usuario: " + this.user);
       console.log("Contraseña nueva: " + this.pass);
-      }
     }
-    console.log("Contraseña incorrecta"); 
   }
   cerrarSesion(){
     this.router.navigate(['login'])

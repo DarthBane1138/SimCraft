@@ -9,7 +9,7 @@
     <ion-input [(ngModel)]='mdl_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa tu usuario" class="label"></ion-input>
   </ion-item>
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_pass' label="Contraseña" type="password" labelPlacement="floating" placeholder="Ingresa la contraseña" label="Password"></ion-input>
+    <ion-input [(ngModel)]='mdl_pass' label="Contraseña:" type="password" labelPlacement="floating" placeholder="Ingresa la contraseña"></ion-input>
   </ion-item>
   <ion-button (click)="login()" class="btn ion-margin-top" fill="solid" expand="block">
     <ion-spinner *ngIf="spinnervisible" name="dots" slot="start"></ion-spinner>Ingresar <ion-icon slot="end"></ion-icon>

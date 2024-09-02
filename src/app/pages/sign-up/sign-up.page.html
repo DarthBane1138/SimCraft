@@ -4,26 +4,29 @@
   </ion-header>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content class="fondo" [fullscreen]="true">
   <!-- Usuario -->
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_new_user' label="User" labelPlacement="floating" placeholder="Ingresa un nombre de usuario" class="label"></ion-input>
+    <ion-input [(ngModel)]='mdl_new_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa un nombre de usuario" class="label"></ion-input>
   </ion-item>
   <!-- Correo -->
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_email' type="email" label="Correo" labelPlacement="floating" placeholder="Ingresa ru correo" class="label"></ion-input>
+    <ion-input [(ngModel)]='mdl_email' type="email" label="Correo:" labelPlacement="floating" placeholder="Ingresa ru correo" class="label"></ion-input>
   </ion-item>
   <!-- Contraseña -->
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_new_pass' type="password" labelPlacement="floating" placeholder="Ingresa la contraseña" label="Contraseña"></ion-input>
+    <ion-input [(ngModel)]='mdl_new_pass' type="password" labelPlacement="floating" placeholder="Ingresa la contraseña" label="Contraseña:"></ion-input>
   </ion-item>
   <!-- Confirmación Contraseña -->
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_conf_pass' type="password" labelPlacement="floating" placeholder="Confirma tu contraseña" label="Confirma Contraseña"></ion-input>
+    <ion-input [(ngModel)]='mdl_conf_pass' type="password" labelPlacement="floating" placeholder="Confirma tu contraseña" label="Confirmar contraseña:"></ion-input>
   </ion-item>
   <!-- Botón para confirmar registro -->
   <ion-button (click)="registrar()" class="btn ion-margin-top" fill="solid" expand="block">
     <ion-spinner *ngIf="spinnervisible" name="dots" slot="start"></ion-spinner> Registrar <ion-icon slot="end"></ion-icon>
+  </ion-button>
+  <ion-button (click)="inicio()" class="btn-inicio ion-margin-top" fill="solid" expand="block">
+    <ion-spinner *ngIf="spinnervisible" name="dots" slot="start"></ion-spinner>Volver a Inicio<ion-icon slot="end"></ion-icon>
   </ion-button>
 </ion-content>
 

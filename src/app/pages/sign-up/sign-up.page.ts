@@ -39,4 +39,8 @@ export class SignUpPage implements OnInit {
     }, 1000)
   }
 
+  inicio(){
+    this.router.navigate(['login']);
+  }
+
 }
