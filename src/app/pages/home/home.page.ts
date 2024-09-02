@@ -73,4 +73,7 @@ export class HomePage implements OnInit {
     }
     console.log("Contraseña incorrecta"); 
   }
+  cerrarSesion(){
+    this.router.navigate(['login'])
+  }
 }

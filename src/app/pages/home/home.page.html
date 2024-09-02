@@ -1,52 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Bienvenido {{ user }}</ion-title>
+    <ion-buttons slot="start"><ion-icon slot="icon-only" name="options-outline"></ion-icon></ion-buttons>
+    <ion-title> Editar datos de mi cuenta</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarSesion()" > <ion-icon slot="icon-only" name="log-out-outline"></ion-icon> </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<!-- Contenido de la pantalla -->
 <ion-content class="ion-padding">
-  <!-- Botón para modal de cambiar contraseña -->
-  <ion-button id="open-modal" expand="block">Cambiar Contraseña</ion-button>
+  <div class="contenedorPerfil">
+    <img clas="perfilImg" src="../../../assets/img/Login_Icon_2a1a3edd-38c4-465a-bcee-a2ab946a7d47.webp" alt="">
+  </div>
+  <p class="bienvenida">Bienvenido {{ user }}</p>
+  <form>
+    <ion-item lines="none"  class="input ion-margin-top">
+      <ion-input label="Nombre usuario:" labelPlacement="floating" type="text" placeholder="{{user}}"></ion-input>
+    </ion-item>
+    <ion-item class="input ion-margin-top" lines="none" >
+      <ion-input label="E-mail:" labelPlacement="floating" type="email" placeholder="Ingresa tu correo"></ion-input>
+    </ion-item>
+    <ion-item class="input ion-margin-top ion-margin-bottom" lines="none">
+      <ion-input label="Contacto:" labelPlacement="floating"  type="tel" placeholder="Ingresa tu teléfono"></ion-input>
+    </ion-item>
+  </form>
+  <ion-button class="btn-resset-password" id="open-modal" expand="block">Cambiar Contraseña</ion-button>
   <p>{{ message }}</p>
   <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
     <ng-template>
       <ion-header>
         <ion-toolbar>
           <ion-buttons slot="start">
-            <ion-button (click)="cancel()">Cancel</ion-button>
+            <ion-button (click)="cancel()">CANCELAR</ion-button>
           </ion-buttons>
+          <ion-title></ion-title>
           <ion-buttons slot="end">
-            <ion-button (click)="change_pass()" [strong]="true"> Confirm </ion-button>
+            <ion-button (click)="change_pass()" [strong]="true"> CONFIRMAR </ion-button>
           </ion-buttons>
         </ion-toolbar>
       </ion-header>
-      <h1 class="centered-modal-text"> Cambia tu contraseña </h1>
       <ion-content class="ion-padding">
-        <ion-item>
-          <ion-input
-            label="Ingrese su contraseña actual"
-            labelPlacement="floating"
-            type="password"
-            [(ngModel)]="current_pass"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            label="Ingrese nueva contraseña"
-            labelPlacement="floating"
-            type="password"
-            [(ngModel)]="new_pass"
-          ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input
-            label="Confirme contraseña"
-            labelPlacement="floating"
-            type="password"
-            [(ngModel)]="confirm_pass"
-          ></ion-input>
-        </ion-item>
+          <ion-label>Contraseña actual:</ion-label>
+          <ion-item lines="none"  class="input ion-margin-top">
+            <ion-input placeholder="Ingresar" type="password" [(ngModel)]="current_pass"></ion-input>
+          </ion-item>
+          <ion-label>Contraseña nueva:</ion-label>
+          <ion-item class="input ion-margin-top" lines="none" >
+            <ion-input placeholder="Ingresar" type="password" [(ngModel)]="new_pass"></ion-input>
+          </ion-item>
+          <ion-label>Confirmar nueva contraseña:</ion-label>
+          <ion-item class="input ion-margin-top ion-margin-bottom" lines="none">
+            <ion-input placeholder="Ingresar" type="password" [(ngModel)]="confirm_pass"></ion-input>
+          </ion-item>
       </ion-content>
     </ng-template>
   </ion-modal>
