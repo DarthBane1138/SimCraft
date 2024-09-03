@@ -9,10 +9,14 @@ import { NavigationExtras, Router } from '@angular/router';
 
 export class SignUpPage implements OnInit {
 
+  // Declaración de Variables
+
+  // Variables para creación de nuevos usuarios
   mdl_new_user: string = '';
   mdl_new_pass: string = '';
   mdl_conf_pass: string = '';
   mdl_email: string = '';
+  // Booleano para manejar cosito de carga
   spinnervisible: boolean = false;
 
   constructor(private router:Router) { }
@@ -21,6 +25,7 @@ export class SignUpPage implements OnInit {
     console.log("Bienvenido al registro de usuario")
   }
 
+  // Función de botón de registro
   registrar() {
     this.spinnervisible = true;
     let extras: NavigationExtras = {
@@ -40,8 +45,9 @@ export class SignUpPage implements OnInit {
     }, 1000)
   }
 
+  // Botón para volver al inicio
   inicio(){
     this.router.navigate(['login']);
   }
-
+  
 }

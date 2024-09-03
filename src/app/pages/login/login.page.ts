@@ -6,23 +6,31 @@ import { NavigationExtras, Router } from '@angular/router';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
 export class LoginPage implements OnInit {
 
+  // Declaración de variables
+
+  // Variables de Usuario actuales
   user: string = '';
   pass: string = '';
 
+  // Variables ingresadas a Inputs
   mdl_user: string = '';
   mdl_pass: string = '';
-  //warningVisible: boolean = false;
+  // Booleano para estado de spinner (cosito de "cargando")
   spinnervisible: boolean=false;
+  // Booleano para manejar estado de Toast
   isToastOpen=false;
+  // Duración Toast
   duration: number=3000;
-  message: string='Credenciales incorrectas, intente de nuevo';
+  // Mensaje entregado en Toast
+  message: string = 'Credenciales incorrectas, intente de nuevo';
 
   constructor(private router:Router) { 
-
   }
  
+  // OnInit, se reciben variables desde Home (en caso de cambio de contraseña) o desde Registro de Usuario
   ngOnInit() {
     let extras =this.router.getCurrentNavigation()?.extras; //el ? es una proteccion contra valores nulos, lo que evita que las paginas se caigan derepente
     if(extras?.state){
@@ -37,34 +45,35 @@ export class LoginPage implements OnInit {
     console.log("Contraseña nueva: " + this.pass);
   }
   
+  // Función ligada a botón de Login
   login(){
     this.spinnervisible=true;
-    //this.warningVisible=false;
     //navegacion con parametros 
-    let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
+    let extras: NavigationExtras ={
       state: {
         "user": this.mdl_user,
         "pass": this.mdl_pass,
       },
-      replaceUrl: true //reemplazo de url (navegacion previa se olvida y se borra)
+      replaceUrl: true
     }
     setTimeout(() => {
       if(this.mdl_user == this.user && this.mdl_pass == this.pass){
         this.router.navigate(['home'], extras);
       }
       else{
-        //this.warningVisible=true;
-        this.isToastOpen=true; //alerta evento credenciales incorrectass
+        this.isToastOpen=true;
       }
       this.spinnervisible=false;
     }, 2000);
     
   }
 
+  // Función para abrir Toast
   setOpen(isOpen: boolean) {
     this.isToastOpen = isOpen;
   }
 
+  // Redirección a Registro de Usuario
   signup() {
     this.router.navigate(['sign-up'],{replaceUrl:true})
   }
