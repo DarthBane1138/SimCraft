@@ -87,8 +87,7 @@ export class ResetPasswordPage implements OnInit {
     }
   }
 
-  // Función para cerrar sesión
-  cerrarSesion(){
+  irResetPassword() {
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
         "user": this.user,
@@ -96,7 +95,17 @@ export class ResetPasswordPage implements OnInit {
       },
       replaceUrl: true
     }
-    this.router.navigate(['login'],extras)
+    this.router.navigate(['reset-password'],extras)
   }
 
+  irHome() {
+    let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
+      state: {
+        "user": this.user,
+        "pass": this.pass,
+      },
+      replaceUrl: true
+    }
+    this.router.navigate(['home'],extras)
+  }
 }
