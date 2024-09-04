@@ -32,6 +32,7 @@ export class SignUpPage implements OnInit {
       state: {
         "user": this.mdl_new_user,
         "pass": this.mdl_new_pass,
+        "mail": this.mdl_email,
       },
       replaceUrl: true
     }
