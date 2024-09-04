@@ -1,14 +1,26 @@
 .btn-inicio {
-    --background: #f1ee03;
+    --background: #0B253E;
     --color: #ffffff;
-    --border-radius: 30px;
-    width: 50%;
+    --border-radius: 5px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
-    font-weight: bold;
 }
 
 .btn-inicio:active{
-    --background: #ffd000;
-    --color: #000000;
+    --background: #0c253b;
+    --color: #ffffff;
+}
+
+.fondoR{
+    --background: #f0f0f0;
+}
+
+
+.titulo{
+    font-weight: bold;
+    color: #0B253E;
+    justify-content: center; 
+    align-items: center; 
+    height: 20%;
 }

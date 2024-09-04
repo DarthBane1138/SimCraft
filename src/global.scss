@@ -36,14 +36,16 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
+//login y registro
 .btn{
-    --background: #00c1ff;
-    --color: #090979;
-    --border-radius: 30px;
-    width: 50%;
+    --background: #F8B31C;
+    --color: #0B253E;
+    --border-radius: 5px;
+    width: 85%;
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 
 .btn:hover{
@@ -51,34 +53,33 @@
     --color:#ffff;
 }
 
-.barra{
-    --background:  radial-gradient(circle, rgba(0,193,255,1) 44%, rgba(9,9,121,1) 100%);
-}
-
-
+//login y registro
 .fondo{
-    --background: #f4f1f1;
-    --color: #000;
+    --background: #0B253E;
 }
-
 
 .input{
     --background:#fff;
-    --color: #000000;
-    --border-radius: 20px;
+    --color: #0B253E;
     margin-left: auto;
     margin-right: auto;
-    width: 95%;
-    transition: border-color border-radius 0.3s ease-in-out;
+    border-radius: 5px;
+    width: 85%;
     border: 1px solid transparent;
 }
-.input:hover{
-    border-radius: 20px;
-    border: 1px solid #00c1ff;
+
+.inputR{
+    --background: transparent;
+    --color: #0B253E;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    width: 85%;
+    border-bottom: 1px solid #0B253E;
 }
 
 .label{
-    --highlight-color: #090979;
+    --highlight-color: #0B253E;
 }
 
 /* .item-war{
@@ -92,12 +93,12 @@
     margin-right: auto;
 } */
 
+//alerta de credenciales incorrectas
 ion-toast {
-    --background: #FFC90E;
+    --background: #ffd745;
     --color: #000000;
     --border-radius: 10px;
     --max-width: 90%;
-    margin-top: 50px;
   }
 
 .icono{
@@ -111,14 +112,19 @@ ion-toast {
   text-align: center;
 }
 
-.signup-button {
-    text-align: center;
+//registro link
+.registerQ{
     color: grey;
+}
+
+.signup-button {
+    color: #ffffff;
     cursor: pointer;
+    font-weight: bold;
 }
 
 //css tab bar
 .bar{
     --color: #002138;
-    --background: #e4e4e4;
+    --background: #f0f0f0;
 }

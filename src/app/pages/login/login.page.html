@@ -1,14 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="barra ion-text-center">
-    <img src="../../../assets/img/Logo_DuocUC.svg.png" alt="Logo" style="height: 40px;">
-  </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="fondo">
-
+  <div class="logo">
+    <img src="../../../assets/img/fondo-azul.jpg" alt="Logo" style="height: 50px;">
+  </div>
+  
   <!-- Input Nombre de Usuario-->
   <ion-item lines="none"  class="ion-margin-top input">
-    <ion-input [(ngModel)]='mdl_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa tu usuario" class="label"></ion-input>
+    <ion-input [(ngModel)]='mdl_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa tu usuario o correo" class="label"></ion-input>
   </ion-item>
 
   <!-- Input Contraseña -->
@@ -22,7 +22,11 @@
   </ion-button>
   
   <!-- Botón para registro -->
-  <p class="signup-button" (click)="signup()"> ¿No estás registrado? </p>
+  <div class="text-container ion-text-center">
+    <small class="registerQ">¿No estás registrado?</small>
+    <small class="signup-button" (click)="signup()">.Crea una cuenta aquí</small>
+  </div>
+  
 
   <!-- Toast con mensajes de validaciones -->
   <ion-toast
@@ -30,7 +34,7 @@
     [message]="message"
     [duration]="duration"
     (didDismiss)="setOpen(false)"
-    position="middle"
+    position="bottom"
   ></ion-toast>
 </ion-content>
 
