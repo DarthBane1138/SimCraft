@@ -27,7 +27,9 @@
 
   <!-- Botón para confirmar registro -->
   <ion-button (click)="registrar()" class="btn ion-margin-top" fill="solid" expand="block">
-    <ion-spinner *ngIf="spinnervisible" name="dots" slot="start"></ion-spinner> REGISTRARSE <ion-icon slot="end"></ion-icon>
+    <ion-spinner *ngIf="spinnervisible" name="circular" slot="start"></ion-spinner> 
+    <span *ngIf="!spinnervisible">REGISTRARSE</span> 
+    <ion-icon slot="end"></ion-icon>
   </ion-button>
 
   <!-- Botón volver al inicio -->
