@@ -58,7 +58,7 @@ export class LoginPage implements OnInit {
     }
     setTimeout(() => {
       if(this.mdl_user == this.user && this.mdl_pass == this.pass){
-        this.router.navigate(['home'], extras);
+        this.router.navigate(['reset-password'], extras);
       }
       else{
         this.isToastOpen=true;
