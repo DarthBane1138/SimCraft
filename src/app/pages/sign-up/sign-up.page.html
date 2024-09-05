@@ -24,6 +24,11 @@
   <ion-item class="ion-margin-top inputR">
     <ion-input [(ngModel)]='mdl_conf_pass' type="password" labelPlacement="floating" placeholder="Confirma tu contraseña" label="Confirmar contraseña:"></ion-input>
   </ion-item>
+  
+  <!-- Input Sede -->
+  <ion-item class="ion-margin-top inputR">
+    <ion-input [(ngModel)]='mdl_location' labelPlacement="floating" placeholder="Ingresa tu sede" label="Sede:"></ion-input>
+  </ion-item>
 
   <!-- Botón para confirmar registro -->
   <ion-button (click)="registrar()" class="btn ion-margin-top" fill="solid" expand="block">

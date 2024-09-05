@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
   user: string = '';
   pass: string = '';
   mail: string = '';
+  location: string = '';
 
   // Variables ingresadas a Inputs
   mdl_user: string = '';
@@ -40,15 +41,18 @@ export class LoginPage implements OnInit {
       this.user = extras?.state["user"]; //if de existencias, permite 
       this.pass = extras?.state["pass"];
       this.mail = extras?.state["mail"];
+      this.mail = extras?.state["location"]
     } else {
       this.user = 'admin';
       this.pass = 'admin';
       this.mail = 'admin@correo.cl';
+      this.location = 'Padre Alonso Ovalle'
     }
     console.log("----- Variables heredadas -----")
     console.log("Nombre usuario: " + this.user);
     console.log("Contraseña nueva: " + this.pass);
     console.log("Corrreo: " + this.mail);
+    console.log("Sede: " + this.location)
   }
   
   // Función ligada a botón de Login
@@ -59,7 +63,8 @@ export class LoginPage implements OnInit {
       state: {
         "user": this.user, // La entradad de user, servirá tanto para usuario como para correo
         "pass": this.pass, // Falta corregir, si se pone usuario, se pierde el correo
-        "mail": this.mail
+        "mail": this.mail,
+        "location": this.location,
       },
       replaceUrl: true
     }

@@ -12,6 +12,7 @@ export class HomePage implements OnInit {
   user: string = '';
   pass: string = '';
   mail: string = '';
+  location: string = '';
   // Mensaje cambio de contraseña
   message = '';
 
@@ -24,10 +25,12 @@ export class HomePage implements OnInit {
       this.user = extras?.state["user"];
       this.pass = extras?.state["pass"];
       this.mail = extras?.state["mail"];
+      this.location = extras?.state["location"];
     }
   console.log("Nombre usuario: " + this.user);
   console.log("Contraseña: " + this.pass);
   console.log("Correo: " + this.mail);
+  console.log("Sede: " + this.location)
   }
 
   // Función para cerrar sesión
@@ -37,6 +40,7 @@ export class HomePage implements OnInit {
         "user": this.user,
         "pass": this.pass,
         "mail": this.mail,
+        "location": this.location,
       },
       replaceUrl: true
     }
@@ -49,6 +53,7 @@ export class HomePage implements OnInit {
         "user": this.user,
         "pass": this.pass,
         "mail": this.mail,
+        "location": this.location,
       },
       replaceUrl: true
     }
@@ -61,6 +66,7 @@ export class HomePage implements OnInit {
         "user": this.user,
         "pass": this.pass,
         "mail": this.mail,
+        "location": this.location,
       },
       replaceUrl: true
     }

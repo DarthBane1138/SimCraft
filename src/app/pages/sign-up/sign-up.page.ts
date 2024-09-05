@@ -16,6 +16,7 @@ export class SignUpPage implements OnInit {
   mdl_new_pass: string = '';
   mdl_conf_pass: string = '';
   mdl_email: string = '';
+  mdl_location: string = '';
   // Booleano para manejar cosito de carga
   spinnervisible: boolean = false;
 
@@ -33,6 +34,7 @@ export class SignUpPage implements OnInit {
         "user": this.mdl_new_user,
         "pass": this.mdl_new_pass,
         "mail": this.mdl_email,
+        "location": this.mdl_location,
       },
       replaceUrl: true
     }

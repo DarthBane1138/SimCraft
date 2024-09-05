@@ -21,6 +21,7 @@ export class ResetPasswordPage implements OnInit {
   user: string='';
   pass: string='';
   mail: string = '';
+  location: string = '';
   // Mensaje cambio de contraseña
   message = '';
   // Variables de cambio de contraseña (en modal)
@@ -42,10 +43,12 @@ export class ResetPasswordPage implements OnInit {
       this.user= extras?.state["user"];
       this.pass= extras?.state["pass"];
       this.mail = extras?.state["mail"];
+      this.location = extras?.state["location"];
     }
   console.log("Nombre usuario: " + this.user);
   console.log("Contraseña: " + this.pass);
   console.log("Correo: " + this.mail);
+  console.log("Sede: " + this.location);
   }
 
   //ngAfterViewInit() {
@@ -70,6 +73,7 @@ export class ResetPasswordPage implements OnInit {
         "user": this.user,
         "pass": this.new_pass,
         "mail": this.mail,
+        "location": this.location,
       },
     }
 
@@ -115,6 +119,7 @@ export class ResetPasswordPage implements OnInit {
         "user": this.user,
         "pass": this.pass,
         "mail": this.mail,
+        "location": this.location,
       },
       replaceUrl: true
     }
@@ -128,10 +133,11 @@ export class ResetPasswordPage implements OnInit {
           "user": this.user,
           "pass": this.pass,
           "mail": this.mail,
+          "location": this.location,
         },
         replaceUrl: true
       }
-      this.router.navigate(['home'],extras)
+      this.router.navigate(['login'],extras)
     }
 
     setOpen(isOpen: boolean) {
