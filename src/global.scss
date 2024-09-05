@@ -126,20 +126,29 @@ ion-toast {
 //css tab bar
 .bar{
     --color: #002138;
-    --background: #f0f0f0;
+    --background: #ffffff;
 }
 
-/* Asegúrate de que el modal esté por encima de otros elementos */
+
 .custom-modal {
     z-index: 2000 !important;
   }
   
-  /* Asegúrate de que los tab bar tengan un z-index menor */
-  .footer-tabs {
+.footer-tabs {
     z-index: 1000;
-  }
+}
   
-  /* Estilo opcional para el contenido de ion-content */
-  ion-content {
-    z-index: 1; /* O cualquier valor inferior al del modal y el tab bar */
-  }
+ion-content {
+    z-index: 1;
+}
+
+//toolbar y background general
+.toolbar{
+  --background: #0B253E;
+  --color: white;
+  font-weight: 400;
+}
+
+.bkgrnd{
+  --background: #f0f0f0;
+}

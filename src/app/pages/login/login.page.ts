@@ -41,18 +41,18 @@ export class LoginPage implements OnInit {
       this.user = extras?.state["user"]; //if de existencias, permite 
       this.pass = extras?.state["pass"];
       this.mail = extras?.state["mail"];
-      this.mail = extras?.state["location"]
+      this.location = extras?.state["location"];
     } else {
       this.user = 'admin';
       this.pass = 'admin';
       this.mail = 'admin@correo.cl';
-      this.location = 'Padre Alonso Ovalle'
+      this.location = 'Padre Alonso Ovalle';
     }
     console.log("----- Variables heredadas -----")
     console.log("Nombre usuario: " + this.user);
     console.log("Contraseña nueva: " + this.pass);
     console.log("Corrreo: " + this.mail);
-    console.log("Sede: " + this.location)
+    console.log("Sede: " + this.location);
   }
   
   // Función ligada a botón de Login

@@ -3,7 +3,7 @@
   </ion-header>
 </ion-header>
 
-<ion-content class="fondoR" [fullscreen]="true">
+<ion-content class="bkgrnd" [fullscreen]="true">
   <ion-title class="titulo">Registrarse</ion-title>
   <!-- Input Usuario -->
   <ion-item lines="inset" class="ion-margin-top inputR custom-line">
@@ -27,7 +27,22 @@
   
   <!-- Input Sede -->
   <ion-item class="ion-margin-top inputR">
-    <ion-input [(ngModel)]='mdl_location' labelPlacement="floating" placeholder="Ingresa tu sede" label="Sede:"></ion-input>
+    <ion-label>Sede:</ion-label>
+      <ion-select [(ngModel)]='mdl_location' placeholder="Selecciona tu sede">
+      <ion-select-option value="Alameda">Sede Alameda</ion-select-option>
+      <ion-select-option value="Padre Alonso de Ovalle">Sede Padre Alonso de Ovalle</ion-select-option>
+      <ion-select-option value="Antonio Varas">Sede Antonio Varas</ion-select-option>
+      <ion-select-option value="Educacion Continua">Sede Educacion Continua</ion-select-option>
+      <ion-select-option value="Maipu">Sede Maipu</ion-select-option>
+      <ion-select-option value="Melipilla">Sede Melipilla</ion-select-option>
+      <ion-select-option value="Plaza Norte">Sede Plaza Norte</ion-select-option>
+      <ion-select-option value="Plaza Oeste">Sede Plaza Oeste</ion-select-option>
+      <ion-select-option value="Plaza Vespucio">Sede Plaza Vespucio</ion-select-option>
+      <ion-select-option value="Puente Alto">Sede Puente Alto</ion-select-option>
+      <ion-select-option value="San Bernardo">Sede San Bernardo</ion-select-option>
+      <ion-select-option value="San Carlos de apoquindo">Sede San Carlos de apoquindo</ion-select-option>
+      <ion-select-option value="San Joaquin">Sede San Joaquin</ion-select-option>
+    </ion-select>
   </ion-item>
 
   <!-- Botón para confirmar registro -->
