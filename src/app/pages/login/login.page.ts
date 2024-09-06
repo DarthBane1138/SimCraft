@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
     } else {
       this.user = 'admin';
       this.pass = 'admin';
-      this.mail = 'admin@correo.cl';
+      this.mail = 'admin@duocuc.cl';
       this.location = 'Padre Alonso Ovalle';
     }
     console.log("----- Variables heredadas -----")

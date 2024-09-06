@@ -59,7 +59,7 @@
 }
 
 .input{
-    --background:#fff;
+    --background:#ffffff;
     --color: #0B253E;
     margin-left: auto;
     margin-right: auto;
@@ -93,13 +93,18 @@
     margin-right: auto;
 } */
 
-//alerta de credenciales incorrectas
+//alerta de credenciales incorrectas en login, validaciones en registro y cambio de contraseña
 ion-toast {
     --background: #ffd745;
     --color: #000000;
     --border-radius: 10px;
     --max-width: 90%;
   }
+
+.errorMessagge{
+    margin-left: 20px;
+    color: #be0000;
+}
 
 .icono{
     --color: #cccccc !important;
@@ -108,6 +113,7 @@ ion-toast {
     --color: #8b0000 !important;
   }
 
+//modal cambio 
 .centered-modal-text {
   text-align: center;
 }

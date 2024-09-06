@@ -24,6 +24,9 @@ export class ResetPasswordPage implements OnInit {
   location: string = '';
   // Mensaje cambio de contraseña
   message = '';
+  errorConfirmPass: string= '';
+  errorNewPass: string= '';
+  errorCurrentPass: string = ''
   // Variables de cambio de contraseña (en modal)
   current_pass: string="";
   new_pass: string="";
@@ -94,6 +97,31 @@ export class ResetPasswordPage implements OnInit {
 
   // Función para cambio de contraseña
   change_pass () {
+    this.errorConfirmPass = '';
+    this.errorNewPass = '';
+    this.errorCurrentPass = '';
+    let validacion = false;
+
+    if(!this.current_pass){
+      this.errorCurrentPass = 'Ingresa tu contraseña actual';
+    }else if(this.current_pass !== this.pass){ //validacion de contraseña actual
+      this.errorCurrentPass = 'La contraseña actual es incorrecta, intenta de nuevo';
+      validacion = true;
+    }
+
+    if(!this.new_pass){
+      this.errorNewPass = '* Este campo es obligatorio'; //validacion de vacios
+      validacion = true;
+    }
+
+    if(!this.confirm_pass){ //validacion de contraseña nueva
+      this.errorConfirmPass = '* Este campo es obligatorio';
+      validacion = true;
+    }else if(this.confirm_pass !== this.new_pass){
+      this.errorConfirmPass = 'Las contraseñas no coinciden, intenta de nuevo';
+      validacion = true;
+    }
+
     if(this.current_pass == this.pass){
       console.log("Tu contraseña actual es correcta")
       if(this.confirm_pass == '' && this.new_pass == ''){
