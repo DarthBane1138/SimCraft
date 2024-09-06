@@ -9,21 +9,25 @@
   <ion-item lines="inset" class="ion-margin-top inputR custom-line">
     <ion-input [(ngModel)]='mdl_new_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa un nombre de usuario" class="label"></ion-input>
   </ion-item>
+  <small *ngIf="errorUser" class="errorMessagge">{{errorUser}}</small>
 
   <!-- Input Correo -->
   <ion-item class="ion-margin-top inputR">
     <ion-input [(ngModel)]='mdl_email' type="email" label="Correo:" labelPlacement="floating" placeholder="Ingresa tu correo" class="label"></ion-input>
   </ion-item>
+  <small *ngIf="errorCorreo" class="errorMessagge">{{errorCorreo}}</small>
 
   <!-- Input Contraseña -->
   <ion-item class="ion-margin-top inputR">
     <ion-input [(ngModel)]='mdl_new_pass' type="password" labelPlacement="floating" placeholder="Ingresa la contraseña" label="Contraseña:"></ion-input>
   </ion-item>
+  <small *ngIf="errorPass" class="errorMessagge">{{errorPass}}</small>
 
   <!-- Input Confirmación Contraseña -->
   <ion-item class="ion-margin-top inputR">
     <ion-input [(ngModel)]='mdl_conf_pass' type="password" labelPlacement="floating" placeholder="Confirma tu contraseña" label="Confirmar contraseña:"></ion-input>
   </ion-item>
+  <small *ngIf="errorConfirmPass" class="errorMessagge">{{errorConfirmPass}}</small>
   
   <!-- Input Sede -->
   <ion-item class="ion-margin-top inputR">
@@ -44,6 +48,7 @@
       <ion-select-option value="San Joaquin">Sede San Joaquin</ion-select-option>
     </ion-select>
   </ion-item>
+  <small *ngIf="sede" class="errorMessagge">{{sede}}</small>
 
   <!-- Botón para confirmar registro -->
   <ion-button (click)="registrar()" class="btn ion-margin-top" fill="solid" expand="block">
