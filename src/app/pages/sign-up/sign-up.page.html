@@ -1,10 +1,16 @@
 <ion-header [translucent]="true">
-  <ion-header>
-  </ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-title>Registro de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="inicio()"> <ion-icon slot="icon-only" name="log-out-outline"></ion-icon> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="bkgrnd" [fullscreen]="true">
-  <ion-title class="titulo">Registrarse</ion-title>
+  <div class="logo">
+    <img class="logo-title" src="../../../assets/img/Logo_DuocUC.svg.png" alt="Logo" style="height: 50px;">
+  </div>
   <!-- Input Usuario -->
   <ion-item lines="inset" class="ion-margin-top inputR custom-line">
     <ion-input [(ngModel)]='mdl_new_user' label="Nombre usuario:" labelPlacement="floating" placeholder="Ingresa un nombre de usuario" class="label"></ion-input>

@@ -101,7 +101,7 @@ export class SignUpPage implements OnInit {
 
   // Botón para volver al inicio
   inicio(){
-    this.router.navigate(['login']);
+    this.router.navigate(['login'], { replaceUrl: true });
   }
   
 }

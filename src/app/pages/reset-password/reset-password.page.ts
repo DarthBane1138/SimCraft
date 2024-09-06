@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { AlertController } from '@ionic/angular';
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -35,7 +36,7 @@ export class ResetPasswordPage implements OnInit {
   isAlertOpen = false;
   alertButtons = ['Cerrar'] //alerta de cerrar sesion desde modal
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private alertController: AlertController) {}
 
   @ViewChild(IonModal) modal!: IonModal;
 
@@ -69,7 +70,7 @@ export class ResetPasswordPage implements OnInit {
     this.modal.dismiss(null, 'cancel');
   }
 
-  // Función para cerrar modal al canelar cambvio de contraseña
+  // Función para cerrar modal al canelar cambio de contraseña
   confirm() {
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
@@ -155,17 +156,34 @@ export class ResetPasswordPage implements OnInit {
   }
 
     // Función para cerrar sesión
-    cerrarSesion(){
-      let extras: NavigationExtras ={
-        state: {
-          "user": this.user,
-          "pass": this.pass,
-          "mail": this.mail,
-          "location": this.location,
-        },
-        replaceUrl: true
-      }
-      this.router.navigate(['login'],extras)
+    async cerrarSesion(){
+      const alert = await this.alertController.create({
+        header: '¿Deseas cerrar la sesión?',
+        buttons: [
+          {
+            text: 'NO',
+            role: 'Cancel',
+            cssClass: 'alert-button-cancel',
+          },
+          {
+            text: 'SI',
+            cssClass: 'alert-button-confirm',
+            handler: () => {
+              let extras: NavigationExtras ={
+                state: {
+                  "user": this.user,
+                  "pass": this.pass,
+                  "mail": this.mail,
+                  "location": this.location,
+                },
+                replaceUrl: true
+              }
+              this.router.navigate(['login'],extras)
+            }
+          }
+        ]
+      });
+      await alert.present();
     }
 
     setOpen(isOpen: boolean) {

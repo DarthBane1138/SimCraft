@@ -15,8 +15,18 @@
     <img class="logo-title" src="../../../assets/img/Logo_DuocUC.svg.png" alt="Logo" style="height: 50px;">
   </div>
   <h1 class="profile-title"> ¡¡Bienvenido/a {{ user }}!! </h1>
-  <p class="description">Con esta nueva aplicación podrás registrar tu asistencia, buscamos mejorar tu experiencia en
-     DuocUC y hacer nuestras clases cada vez más eficientes</p>
+    <ion-card>
+      <img alt="Silhouette of mountains" [src]="sedePhoto"/>
+      <ion-card-header>
+        <ion-card-subtitle>Estás matriculado en</ion-card-subtitle>
+        <ion-card-title> Sede: {{ location }} </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ adress }}
+      </ion-card-content>
+    </ion-card>
+    <p class="description">Con esta nueva aplicación podrás registrar tu asistencia, buscamos mejorar tu experiencia en
+      DuocUC y hacer nuestras clases cada vez más eficientes</p>
 </ion-content>
 
 

@@ -13,9 +13,24 @@
 }
 
 .titulo{
+    display: flex;
     font-weight: bold;
-    color: #0B253E;
+    color: #ffffff;
     justify-content: center; 
     align-items: center; 
     height: 20%;
+}
+
+.inputR {
+    color: white;
+    text-shadow: 1px 1px 0 black, 
+                 -1px -1px 0 black, 
+                 1px -1px 0 black, 
+                 -1px 1px 0 black;
+}
+
+.logo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
