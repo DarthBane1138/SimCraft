@@ -33,7 +33,7 @@ export class ResetPasswordPage implements OnInit {
   confirm_pass: string="";
   // Variable Alerta
   isAlertOpen = false;
-  alertButtons = ['Cerrar']
+  alertButtons = ['Cerrar'] //alerta de cerrar sesion desde modal
 
   constructor(private router:Router) {}
 

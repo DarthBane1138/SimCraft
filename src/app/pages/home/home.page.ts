@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,7 @@ export class HomePage implements OnInit {
   // Mensaje cambio de contraseña
   message = '';
 
-  constructor(private router:Router) {}
+  constructor(private router:Router, private alertController: AlertController) {}
 
   // Recepción de varibales desde login
   ngOnInit() {
@@ -32,10 +33,44 @@ export class HomePage implements OnInit {
   console.log("Correo: " + this.mail);
   console.log("Sede: " + this.location)
   }
+  public alertButtons = [
+    {
+      text: 'No',
+      cssClass: 'alert-button-cancel',
+    },
+    {
+      text: 'Yes',
+      cssClass: 'alert-button-confirm',
+    },
+  ];
 
+  
   // Función para cerrar sesión
-  cerrarSesion(){
-    let extras: NavigationExtras ={
+  async cerrarSesion() {
+    const alert = await this.alertController.create({
+      header: 'Deseas cerrar la sesión?',
+      buttons: [
+        {
+          text: 'NO',
+          role: 'cancel',
+          cssClass: 'alert-button-cancel',
+        },
+        {
+          text: 'SI',
+          cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.confirm();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  // Redirección después de confirmar logout
+  confirm() {
+    let extras: NavigationExtras = {
       state: {
         "user": this.user,
         "pass": this.pass,
@@ -43,8 +78,8 @@ export class HomePage implements OnInit {
         "location": this.location,
       },
       replaceUrl: true
-    }
-    this.router.navigate(['login'],extras)
+    };
+    this.router.navigate(['login'], extras);
   }
 
   irHome() {
