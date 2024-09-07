@@ -11,6 +11,12 @@ export class SignUpPage implements OnInit {
 
   // Declaración de Variables
 
+  // Variables de Usuarui actuales
+  user: string = '';
+  pass: string = '';
+  mail: string = '';
+  location: string = '';
+
   // Variables para creación de nuevos usuarios
   mdl_new_user: string = '';
   mdl_new_pass: string = '';
@@ -30,6 +36,13 @@ export class SignUpPage implements OnInit {
 
   ngOnInit() {
     console.log("Bienvenido al registro de usuario")
+    let extras = this.router.getCurrentNavigation()?.extras;
+    if(extras?.state){
+      this.user = extras?.state["user"];
+      this.pass = extras?.state["pass"];
+      this.mail = extras?.state["mail"];
+      this.location = extras?.state["location"];
+    }
   }
 
   // Función de botón de registro
@@ -101,7 +114,16 @@ export class SignUpPage implements OnInit {
 
   // Botón para volver al inicio
   inicio(){
-    this.router.navigate(['login'], { replaceUrl: true });
+    let extras: NavigationExtras = {
+      state: {
+        "user": this.user,
+        "pass": this.pass,
+        "mail": this.mail,
+        "location": this.location,
+      },
+      replaceUrl: true
+    }
+    this.router.navigate(['login'], extras);
   }
   
 }

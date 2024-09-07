@@ -61,8 +61,8 @@ export class LoginPage implements OnInit {
     //navegacion con parametros 
     let extras: NavigationExtras ={
       state: {
-        "user": this.user, // La entradad de user, servirá tanto para usuario como para correo
-        "pass": this.pass, // Falta corregir, si se pone usuario, se pierde el correo
+        "user": this.user,
+        "pass": this.pass,
         "mail": this.mail,
         "location": this.location,
       },
@@ -90,6 +90,15 @@ export class LoginPage implements OnInit {
 
   // Redirección a Registro de Usuario
   signup() {
-    this.router.navigate(['sign-up'],{replaceUrl:true})
+    let extras: NavigationExtras = {
+      state: {
+        "user": this.user,
+        "pass": this.pass,
+        "mail": this.mail,
+        "location": this.location,
+      },
+      replaceUrl: true
+    };
+    this.router.navigate(['sign-up'], extras);
   }
 }
