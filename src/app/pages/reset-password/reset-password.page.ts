@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
-import { IonModal } from '@ionic/angular';
+import { IonModal, AnimationController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { AlertController } from '@ionic/angular';
 
@@ -35,10 +35,10 @@ export class ResetPasswordPage implements OnInit {
   // Variable Alerta
   isAlertOpen = false;
   alertButtons = ['Cerrar'] //alerta de cerrar sesion desde modal
-
-  constructor(private router:Router, private alertController: AlertController) {}
-
+  
   @ViewChild(IonModal) modal!: IonModal;
+  
+  constructor(private router:Router, private alertController: AlertController, private animationCtrl: AnimationController) {}
 
   // Recepción de varibales desde login
   ngOnInit() {
@@ -49,10 +49,46 @@ export class ResetPasswordPage implements OnInit {
       this.mail = extras?.state["mail"];
       this.location = extras?.state["location"];
     }
-  console.log("Nombre usuario: " + this.user);
-  console.log("Contraseña: " + this.pass);
-  console.log("Correo: " + this.mail);
-  console.log("Sede: " + this.location);
+
+    console.log("Nombre usuario: " + this.user);
+    console.log("Contraseña: " + this.pass);
+    console.log("Correo: " + this.mail);
+    console.log("Sede: " + this.location);
+  }
+
+  ngAfterViewInit() {
+        // Definir animaciones de entrada y salida para el modal
+    const enterAnimation = (baseEl: HTMLElement) => {
+      const root = baseEl.shadowRoot;
+
+      const backdropAnimation = this.animationCtrl
+        .create()
+        .addElement(root!.querySelector('ion-backdrop')!)
+        .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+
+      const wrapperAnimation = this.animationCtrl
+        .create()
+        .addElement(root!.querySelector('.modal-wrapper')!)
+        .keyframes([
+          { offset: 0, opacity: '0', transform: 'scale(0)'},
+          { offset: 1, opacity: '1', transform: 'scale(1)'},
+        ]);
+      
+      return this.animationCtrl
+        .create()
+        .addElement(baseEl)
+        .easing('ease-out')
+        .duration(500)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
+    }
+
+    const leaveAnimation = (baseEl: HTMLElement) => {
+      return enterAnimation(baseEl).direction('reverse');
+    };
+
+    // Asignar animaciones personalizadas al modal
+    this.modal.enterAnimation = enterAnimation;
+    this.modal.leaveAnimation = leaveAnimation;
   }
 
   //ngAfterViewInit() {
@@ -88,13 +124,13 @@ export class ResetPasswordPage implements OnInit {
   }
 
   // Función para cerrar modal pero confirmados los datos de cambio de contraseña
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      //this.message = `Felicidades, ${ev.detail.data} has cambiado tu contraseña`;
-      //this.setOpen(false);
-    }
-  }
+  // onWillDismiss(event: Event) {
+  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
+  //   if (ev.detail.role === 'confirm') {
+  //     //this.message = `Felicidades, ${ev.detail.data} has cambiado tu contraseña`;
+  //     //this.setOpen(false);
+  //   }
+  // }
 
   // Función para cambio de contraseña
   change_pass () {
@@ -189,7 +225,6 @@ export class ResetPasswordPage implements OnInit {
     setOpen(isOpen: boolean) {
       this.isAlertOpen = isOpen;
     }
-
 }
 
 
