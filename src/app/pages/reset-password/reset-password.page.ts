@@ -24,7 +24,7 @@ export class ResetPasswordPage implements OnInit {
   mail: string = '';
   location: string = '';
   // Mensaje cambio de contraseña
-  message = '';
+  // message = '';
   errorConfirmPass: string= '';
   errorNewPass: string= '';
   errorCurrentPass: string = ''
@@ -91,7 +91,7 @@ export class ResetPasswordPage implements OnInit {
   onWillDismiss(event: Event) {
     const ev = event as CustomEvent<OverlayEventDetail<string>>;
     if (ev.detail.role === 'confirm') {
-      this.message = `Felicidades, ${ev.detail.data} has cambiado tu contraseña`;
+      //this.message = `Felicidades, ${ev.detail.data} has cambiado tu contraseña`;
       //this.setOpen(false);
     }
   }
