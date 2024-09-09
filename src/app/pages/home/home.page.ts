@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   // Mensaje cambio de contraseña
   message = '';
 
+  // Objeto que asocia claves (Sede) con valores (Ruta de imagen de sede)
   sedesPhotos = {
     'Alameda': 'assets/img/Sede-Alameda.jpg',
     'Padre Alonso Ovalle': 'assets/img/Sede-Padre_Alonso_Ovalle.jpg',
@@ -33,6 +34,7 @@ export class HomePage implements OnInit {
     'San Joaquin': 'assets/img/Sede-San-Joaquin.jpg',
   };
 
+  // Objeto que asocia claves (Sede) con valores (Dirección de sede)
   adresses = {
     'Alameda': 'Av. España 8, Santiago Centro, Metro Estación República (esquina Alameda).',
     'Padre Alonso Ovalle': 'Padre Alonso de Ovalle 1586, Metro La Moneda, Santiago Centro.',
@@ -67,21 +69,12 @@ export class HomePage implements OnInit {
   console.log("Foto de la sede: " + this.sedePhoto);
   }
 
-  public alertButtons = [
-    {
-      text: 'No',
-      cssClass: 'alert-button-cancel',
-    },
-    {
-      text: 'Yes',
-      cssClass: 'alert-button-confirm',
-    },
-  ];
-
+  // Getter para obtener la ruta de la foto, basada en la variable location
   get sedePhoto(): string {
     return this.sedesPhotos[this.location as keyof typeof this.sedesPhotos] || "https://ionicframework.com/docs/img/demos/card-media.png";
   }
 
+  // Getter para obtener la dirección de la sede, basada en la variable location
   get adress(): string {
     return this.adresses[this.location as keyof typeof this.adresses] || "Dirección no Disponible"
   }
@@ -123,6 +116,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['login'], extras);
   }
 
+  // Redirección a Home desde footer
   irHome() {
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
@@ -136,6 +130,7 @@ export class HomePage implements OnInit {
     this.router.navigate(['home'],extras)
   }
 
+  // Redirección a Perfil de Usuario desde footer
   irResetPassword() {
     let extras: NavigationExtras ={ //el state es el estado en el que va a viajar el parametro
       state: {
