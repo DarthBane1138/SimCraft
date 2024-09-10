@@ -91,11 +91,6 @@ export class ResetPasswordPage implements OnInit {
     this.modal.leaveAnimation = leaveAnimation;
   }
 
-  //ngAfterViewInit() {
-  //  console.log(this.modal);
-  //  this.modal.present(); // Intenta abrir el modal manualmente
-  //}
-
   openModal() {
     console.log("Me has presionado")
     this.modal.present(); // Abre el modal manualmente
@@ -122,15 +117,6 @@ export class ResetPasswordPage implements OnInit {
       this.router.navigate(['login'], extras)
     }, 2000);
   }
-
-  // Función para cerrar modal pero confirmados los datos de cambio de contraseña
-  // onWillDismiss(event: Event) {
-  //   const ev = event as CustomEvent<OverlayEventDetail<string>>;
-  //   if (ev.detail.role === 'confirm') {
-  //     //this.message = `Felicidades, ${ev.detail.data} has cambiado tu contraseña`;
-  //     //this.setOpen(false);
-  //   }
-  // }
 
   // Función para cambio de contraseña
   change_pass () {
