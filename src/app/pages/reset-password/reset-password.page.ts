@@ -222,9 +222,9 @@ export class ResetPasswordPage implements OnInit {
       await alert.present();
     }
 
-    setOpen(isOpen: boolean) {
-      this.isAlertOpen = isOpen;
-    }
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
+  }
 }
 
 

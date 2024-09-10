@@ -31,6 +31,9 @@ export class SignUpPage implements OnInit {
   sede: string='';
   // Booleano para manejar cosito de carga
   spinnervisible: boolean = false;
+  // Booleano para alerta
+  isAlertOpen = false;
+  alertButtons = ['OK'];
 
   constructor(private router:Router) { }
 
@@ -93,6 +96,9 @@ export class SignUpPage implements OnInit {
       return;
     }
         
+    this.isAlertOpen = true;
+
+
     let extras: NavigationExtras = {
       state: {
         "user": this.mdl_new_user,
@@ -102,14 +108,14 @@ export class SignUpPage implements OnInit {
       },
       replaceUrl: true
     }
-    setTimeout(() => {
-      if(this.mdl_new_user && this.mdl_new_pass && this.mdl_email && this.mdl_conf_pass && this.mdl_location) {
-        // Acá irán las condiciones para aceptar el registro de usuario
-        this.router.navigate(['login'], extras)
-      } else {
 
-      }
-    }, 1000)
+    setTimeout(() => {
+      this.isAlertOpen = false;
+    }, 3000); 
+
+    setTimeout(() => {
+        this.router.navigate(['login'], extras)
+    }, 3000);
   }
 
   // Botón para volver al inicio
@@ -124,6 +130,10 @@ export class SignUpPage implements OnInit {
       replaceUrl: true
     }
     this.router.navigate(['login'], extras);
+  }
+  
+  setOpen(isOpen: boolean) {
+    this.isAlertOpen = isOpen;
   }
   
 }
