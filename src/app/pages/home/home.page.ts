@@ -62,11 +62,11 @@ export class HomePage implements OnInit {
       this.mail = extras?.state["mail"];
       this.location = extras?.state["location"];
     }
+  console.log("-- Se ha ingresado con --");
   console.log("Nombre usuario: " + this.user);
   console.log("Contraseña: " + this.pass);
   console.log("Correo: " + this.mail);
   console.log("Sede: " + this.location);
-  console.log("Foto de la sede: " + this.sedePhoto);
   }
 
   // Getter para obtener la ruta de la foto, basada en la variable location
